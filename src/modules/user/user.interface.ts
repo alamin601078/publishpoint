@@ -5,4 +5,10 @@ interface user {
     password: string;         
     role: boolean;               
     inBlocked: boolean;      
-  }
+}
+
+interface userlogin {         
+  email: string;          
+  password: string;         
+     
+}

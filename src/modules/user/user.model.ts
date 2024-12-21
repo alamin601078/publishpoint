@@ -9,5 +9,6 @@ const userSchema = new Schema({
     timestamps: true
 })
 
+
 const user = model('user',userSchema)
 export default user

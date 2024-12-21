@@ -1,6 +1,8 @@
 import express, { Application, Request, Response } from 'express'
 import cors from 'cors'
-import userRouter from './app/modules/user/user.route'
+import userRouter from './modules/user/user.route'
+import blogRouter from './modules/blog/blog.route'
+
 
 
 
@@ -12,6 +14,7 @@ app.use(express.json())
 app.use(cors())
 
 app.use('/api',userRouter)
+app.use('/api',blogRouter)
 
 app.get('/', (req: Request, res:Response) => {
   res.send('Bocks! Server is running')

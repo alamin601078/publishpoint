@@ -31,6 +31,34 @@ const createUser = async (req:Request , res:Response) =>{
 
 }
 
+const loginUser = async (req:Request , res:Response) =>{
+
+    try{
+        const payload = req.body
+
+        const result = await userService.loginuser(payload)
+    
+        res.json({
+            massages:'login successful',
+            status:true,
+            data: result,
+        })
+
+    }catch(error){
+        res.json({
+            "success": false,
+            "message": "Validation error",
+            "statusCode": 400,
+            "stack": "error stack",
+            error
+        })
+    }
+ 
+
+}
+
+
 export const  userController = {
     createUser,
+    loginUser
 }
