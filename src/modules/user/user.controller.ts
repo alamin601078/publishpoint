@@ -62,10 +62,10 @@ const blockUser = async (req:Request , res:Response) =>{
 
     try{
         const {userId} = req.params
-         const body = req.body
+        //  const body = req.body
         //  console.log(userId)
         
-        const result = await userService.adminblock(userId, body)
+        const result = await userService.adminblock(userId)
     
         res.json({
             massages:'User blocked successfully',
@@ -86,8 +86,29 @@ const blockUser = async (req:Request , res:Response) =>{
 
 }
 
+const adminDeleteBlog = async (req: Request, res: Response) => {
+  try {
+    const id = req.params.id
+    const result = await userService.adminDeleteBlog(id)
+    // console.log(result, id)
+
+    res.send({
+      "success": true,
+      "message": "Blog deleted successfully",
+      "statusCode": 200
+    })
+  } catch (error) {
+    res.send({
+      success: false,
+      message: 'Something went wrong',
+      error,
+    })
+  }
+}
+
 export const  userController = {
     createUser,
     loginUser,
-    blockUser
+    blockUser,
+    adminDeleteBlog
 }

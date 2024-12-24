@@ -1,3 +1,4 @@
+import blogs from "../blog/blog.model"
 import user from "./user.model"
 
 
@@ -12,7 +13,7 @@ const loginuser = async (payload:{ email: string, password: string })=>{
     return result
 }
 
-const adminblock = async (userId: string, data: any) => {
+const adminblock = async (userId: string) => {
 
     const result = await user.findByIdAndUpdate(userId, {
      
@@ -22,8 +23,14 @@ const adminblock = async (userId: string, data: any) => {
     return result
 }
 
+const adminDeleteBlog = async (id: string) => {
+    const result = await blogs.findByIdAndDelete(id)
+    return result 
+}
+
 export const userService ={
     createuser,
     loginuser,
-    adminblock
+    adminblock,
+    adminDeleteBlog
 }

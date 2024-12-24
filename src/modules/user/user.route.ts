@@ -11,6 +11,7 @@ userRouter.post('/auth/register', userController.createUser)
 userRouter.post('/auth/login', userController.loginUser)
 userRouter.patch('/auth/login', userController.loginUser)
 userRouter.patch('/admin/users/:userId/block', userController.blockUser)
+userRouter.delete('/admin/blogs/:id', userController.adminDeleteBlog)
 
 export default userRouter
 
