@@ -57,8 +57,37 @@ const loginUser = async (req:Request , res:Response) =>{
 
 }
 
+const blockUser = async (req:Request , res:Response) =>{
+        
+
+    try{
+        const {userId} = req.params
+         const body = req.body
+        //  console.log(userId)
+        
+        const result = await userService.adminblock(userId, body)
+    
+        res.json({
+            massages:'User blocked successfully',
+            status:true,
+            data: result,
+        })
+
+    }catch(error){
+        res.json({
+            "success": false,
+            "message": "Validation error",
+            "statusCode": 400,
+            "stack": "error stack",
+            error
+        })
+    }
+ 
+
+}
 
 export const  userController = {
     createUser,
-    loginUser
+    loginUser,
+    blockUser
 }

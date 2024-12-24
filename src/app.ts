@@ -15,6 +15,7 @@ app.use(cors())
 
 app.use('/api',userRouter)
 app.use('/api',blogRouter)
+// app.use('/api',admi)
 
 app.get('/', (req: Request, res:Response) => {
   res.send('Bocks! Server is running')

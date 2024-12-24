@@ -3,8 +3,8 @@ interface user {
     name: string;          
     email: string;          
     password: string;         
-    role: boolean;               
-    inBlocked: boolean;      
+    role: 'user' | 'admin';               
+    inBlocked: 'true' | 'false';      
 }
 
 interface userlogin {         
